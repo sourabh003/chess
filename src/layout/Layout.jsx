@@ -117,16 +117,16 @@ export default function Layout() {
 				setSelectedBox("");
 				return;
 			}
-			let anotherPiecePicked = piecesPosition.filter(
+			let anotherPiecePicked = piecesPosition.find(
 				(piece) => piece.position === index
 			);
-			if (anotherPiecePicked.length > 0) {
-				setPickedPiece(anotherPiecePicked[0]);
-				setSelectedBox(anotherPiecePicked[0].position);
+			if (anotherPiecePicked) {
+				setPickedPiece(anotherPiecePicked);
+				setSelectedBox(anotherPiecePicked.position);
 				setPossibleMoves(
 					getPossibleMoves(
-						anotherPiecePicked[0],
-						anotherPiecePicked[0].position
+						anotherPiecePicked,
+						anotherPiecePicked.position
 					)
 				);
 				return;
